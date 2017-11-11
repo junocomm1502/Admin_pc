@@ -165,7 +165,7 @@ class OverlayView extends ViewGroup {
       //  mLoadPaint.setStrokeWidth(10f);
         paint = new Paint();
         paint.setColor(Color.WHITE);
-        paint.setStrokeWidth(40);
+        paint.setStrokeWidth(80);
         paint.setStyle(Paint.Style.STROKE);
     }
 
@@ -183,19 +183,20 @@ class OverlayView extends ViewGroup {
         }
 
         String s = "FPS: " + mFPS;*/
-      //  canvas.drawText(""+xval, 100, 100, mLoadPaint);
+        canvas.drawText(""+xval, 400, 100, mLoadPaint);
        // Log.e("CursorService", "fps="+s);
         
         if (mShowCursor) 
         {
+        	//Toast.makeText(parent1.getApplicationContext(), "firtop", Toast.LENGTH_SHORT).show();
         	canvas.drawRect(0, 0,val1,val2,  paint);
         	//canvas.drawBitmap(cursor,0,0,null);
             canvas.drawBitmap(cursor,px1,py1,null);
-          //  canvas.drawBitmap(cursor,px2,py2,null);
+            canvas.drawBitmap(cursor,px2,py2,null);
         	canvas.drawBitmap(launcher,px3,py3,null);
         	canvas.drawBitmap(launcher,px4,py4,null);
         	canvas.drawBitmap(launcher2,px5,py5,null);
-        	canvas.drawBitmap(launcher,px6,py6,null);
+        	//canvas.drawBitmap(launcher,px6,py6,null);
         //	canvas.drawBitmap(cursor,270,350,null);
             
         }
@@ -203,12 +204,35 @@ class OverlayView extends ViewGroup {
 
     @Override
     protected void onLayout(boolean arg0, int arg1, int arg2, int arg3, int arg4) {
+    	
     }
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
     	
-		return true;
+    	/*Toast.makeText(parent1.getApplicationContext(), "firtop", Toast.LENGTH_SHORT).show();
+    	int eventAction = event.getAction();
+        
+        // you may need the x/y location
+        int x = (int)event.getX();
+        int y = (int)event.getY();
+
+        // put your code in here to handle the event
+        switch (eventAction) {
+            case MotionEvent.ACTION_DOWN:
+            	Toast.makeText(parent1.getApplicationContext(), "top", Toast.LENGTH_SHORT).show();
+                break;
+            case MotionEvent.ACTION_UP:
+                break;
+            case MotionEvent.ACTION_MOVE:
+                break;
+        }
+      
+        // tell the View to redraw the Canvas
+        invalidate();
+      
+        // tell the View that we handled the event */
+        return true;
     }
 
 }

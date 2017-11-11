@@ -5,7 +5,7 @@ include $(CLEAR_VARS)
 OPENCV_LIB_TYPE:=STATIC
 OPENCV_INSTALL_MODULES:=on
 
-OPENCV_MK_PATH:=/media/sda3/OpenCV-android-sdk/sdk/native/jni/OpenCV.mk
+OPENCV_MK_PATH:=/media/pritam/2A1A5C751A5C3FCD/ndk_opencv/OpenCV-android-sdk/sdk/native/jni/OpenCV.mk
 ifeq ("$(wildcard $(OPENCV_MK_PATH))","")
 	#try to load OpenCV.mk from default install location
 	include $(TOOLCHAIN_PREBUILT_ROOT)/user/share/OpenCV/OpenCV.mk

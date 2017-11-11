@@ -476,7 +476,7 @@ int id action_menu_presenter 0x7f090006
 int id action_mode_bar 0x7f090041
 int id action_mode_bar_stub 0x7f090040
 int id action_mode_close_button 0x7f090026
-int id action_settings 0x7f090073
+int id action_settings 0x7f090072
 int id activity_chooser_view_content 0x7f090027
 int id alertTitle 0x7f090033
 int id always 0x7f09001c
@@ -524,7 +524,6 @@ int id multiply 0x7f090017
 int id never 0x7f09001f
 int id none 0x7f090012
 int id normal 0x7f09000e
-int id paint 0x7f090071
 int id paint_colors 0x7f090055
 int id parentPanel 0x7f090030
 int id progress_circular 0x7f090007
@@ -561,7 +560,7 @@ int id test 0x7f09006f
 int id text 0x7f09006c
 int id text2 0x7f09006a
 int id textSpacerNoButtons 0x7f090037
-int id textView1 0x7f090072
+int id textView1 0x7f090071
 int id time 0x7f090068
 int id title 0x7f09002d
 int id title_template 0x7f090032

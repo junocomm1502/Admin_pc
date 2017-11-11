@@ -631,8 +631,7 @@ public class CameraPreview implements SurfaceHolder.Callback, Camera.PreviewCall
 		    	ostatus=1;
 		    }*/
             
-           // TextView tv=(TextView)parent.findViewById(R.id.textView1);
-           // tv.setText("(sh1,sh2)"+sminh+","+smaxh+"(ss1,ss2)"+smins+","+smaxs+"(sv1,sv2)"+sminv+","+smaxv);
+            
             
             
             Button b2=(Button)parent.findViewById(R.id.test);
@@ -652,7 +651,7 @@ public class CameraPreview implements SurfaceHolder.Callback, Camera.PreviewCall
     			}
     			});
             
-            Button b5=(Button)parent.findViewById(R.id.paint);
+         /*   Button b5=(Button)parent.findViewById(R.id.paint);
             b5.setOnClickListener(new OnClickListener() {
     			public void onClick(View v) {	
     				
@@ -684,45 +683,73 @@ public class CameraPreview implements SurfaceHolder.Callback, Camera.PreviewCall
     		    	parent.startActivity(intent);
     				parent.finish();
     			}
-    		});
+    		});*/
             
-            double cx = Math.sqrt(Math.pow( r[11]-r[9], 2) + Math.pow( r[12]-r[10], 2));
+            double cx = Math.sqrt(Math.pow( r[15]-r[13], 2) + Math.pow( r[16]-r[14], 2));
             
-            int xp=(r[9]*2),yp=(r[10]*2);
+          //  int xp=((768-r[10])*2),yp=(r[9]*2);
+          //  int xp=(r[9]*2),yp=(r[10]*2);
+            int xp=r[11],yp=r[12];
             
-      /* ................new click     if(cx>100 && cx<250)
+            
+           // TextView tv=(TextView)parent.findViewById(R.id.textView1);
+           // tv.setText("(Area-)"+r[11]);
+            
+      // ................new click     
+          // if(r[11]<550 && r[11]!=0)
+            if(cx<11 && cx!=0 && r[9]!=0 && r[10]!=0)
             {
-            	try {
+            	
+            //	try {
 					//Runtime.getRuntime().exec("adb shell");
 					//Runtime.getRuntime().exec("su");
 					//Runtime.getRuntime().exec("chmod 666 /dev/input/event2");
-					try {
-    					doCmds("chmod 666 /dev/input/event2");
+				/*	try {
+    					doCmds("chmod 666 /dev/input/event3");
     				} catch (Exception e) {
     					// TODO Auto-generated catch block
     					e.printStackTrace();
-    				}
-					Runtime.getRuntime().exec("sendevent /dev/input/event2 3 57 11");
-					Runtime.getRuntime().exec("sendevent /dev/input/event2 3 53 "+xp);
-					Runtime.getRuntime().exec("sendevent /dev/input/event2 3 54 "+yp);
-					Runtime.getRuntime().exec("sendevent /dev/input/event2 3 58 44");
-					Runtime.getRuntime().exec("sendevent /dev/input/event2 3 48 4");
-					Runtime.getRuntime().exec("sendevent /dev/input/event2 0 0 0");
-					Runtime.getRuntime().exec("sendevent /dev/input/event2 3 53 "+(xp+1));
-					Runtime.getRuntime().exec("sendevent /dev/input/event2 3 58 45");
-					Runtime.getRuntime().exec("sendevent /dev/input/event2 0 0 0");
-					Runtime.getRuntime().exec("sendevent /dev/input/event2 3 57 4294967295");
-					Runtime.getRuntime().exec("sendevent /dev/input/event2 0 0 0");
+    				}*/
+					
+					final Thread t = new Thread() {
+        	            public void run() {
+        	            	
+        	            				
+        	            			
+        	            				intEnableDebug(1);
+        	            				m_fd = intCreate("/dev/input/event3", 1, 0);
+        	            				SendTouchDownAbs(xp,yp);
+        	            				
+        	            			
+        	            }
+        	        };
+        	        t.start();
+    				
+				/*	Runtime.getRuntime().exec("sendevent /dev/input/event3 3 57 11");
+					Runtime.getRuntime().exec("sendevent /dev/input/event3 3 53 "+xp);
+					Runtime.getRuntime().exec("sendevent /dev/input/event3 3 54 "+yp);
+					Runtime.getRuntime().exec("sendevent /dev/input/event3 3 58 44");
+					Runtime.getRuntime().exec("sendevent /dev/input/event3 3 48 4");
+					Runtime.getRuntime().exec("sendevent /dev/input/event3 0 0 0");
+					Runtime.getRuntime().exec("sendevent /dev/input/event3 3 53 "+(xp+1));
+					Runtime.getRuntime().exec("sendevent /dev/input/event3 3 58 45");
+					Runtime.getRuntime().exec("sendevent /dev/input/event3 0 0 0");
+					Runtime.getRuntime().exec("sendevent /dev/input/event3 3 57 4294967295");
+					Runtime.getRuntime().exec("sendevent /dev/input/event3 0 0 0");*/
+					try {
+						Thread.sleep(5);
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
 					
 					
 					
-					
-					
-				} catch (IOException e) {
+			/*	} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
-				}
-            }.........................new click*/
+				}*/
+            	
+            }              // .........................new click
             
             
             if(borderst==0)
@@ -753,8 +780,8 @@ public class CameraPreview implements SurfaceHolder.Callback, Camera.PreviewCall
             };
             nthread.run();*/
             	
-            //	 m_CurService.Update(r[9],r[10],r[11],r[12], true,paintColor,800,480,parent,cx,p1x,p1y,p2x,p2y,p3x,p3y,p4x,p4y);
-            m_CurService.Update(r[9],r[10],r[11],r[12], true,paintColor,1180,768,parent,cx,p1x,p1y,p2x,p2y,p3x,p3y,p4x,p4y);	
+            	 m_CurService.Update(r[9],r[10],r[11],r[12], true,paintColor,800,480,parent,cx,p1x,p1y,p2x,p2y,p3x,p3y,p4x,p4y);
+          //  m_CurService.Update(r[9],r[10],r[11],r[12], true,paintColor,1180,768,parent,cx,p1x,p1y,p2x,p2y,p3x,p3y,p4x,p4y);	
         //  m_CurService.Update(r[9],r[10],r[11],r[12], true,paintColor,1180,768,parent,cx,(768-p1y),p1x,(768-p2y),p2x,(768-p3y),p3x,(768-p4y),p4x);
             
             }
@@ -762,8 +789,8 @@ public class CameraPreview implements SurfaceHolder.Callback, Camera.PreviewCall
             {
             	//Log.e("CameraPreview", "else");
             // m_CurService.Update(r[9],r[10],r[11],r[12], true,paintColor,768,1180,parent,cx,(768-p1y),p1x,(768-p2y),p2x,(768-p3y),p3x,(768-p4y),p4x);
-           m_CurService.Update(r[9],r[10],r[11],r[12], true,paintColor,768,1180,parent,cx,p1x,p1y,p2x,p2y,p3x,p3y,p4x,p4y);	
-         //   m_CurService.Update(r[9],r[10],r[11],r[12], true,paintColor,480,800,parent,cx,p1x,p1y,p2x,p2y,p3x,p3y,p4x,p4y);
+         //  m_CurService.Update(r[9],r[10],r[11],r[12], true,paintColor,768,1180,parent,cx,p1x,p1y,p2x,p2y,p3x,p3y,p4x,p4y);	
+            m_CurService.Update(r[9],r[10],r[11],r[12], true,paintColor,480,800,parent,cx,p1x,p1y,p2x,p2y,p3x,p3y,p4x,p4y);
             }
             
             
@@ -1001,7 +1028,31 @@ public class CameraPreview implements SurfaceHolder.Callback, Camera.PreviewCall
 	}
 
 
-
+    public int SendTouchDownAbs(int x, int y ) {
+		intSendEvent(m_fd, EV_ABS, REL_X, x); //set x coord
+		intSendEvent(m_fd, EV_ABS, REL_Y, y); //set y coord
+		intSendEvent(m_fd, EV_ABS, 24,100);
+		intSendEvent(m_fd, EV_ABS, 28,1);
+		intSendEvent(m_fd, 1, 330, 1); // touch down
+		intSendEvent(m_fd, EV_ABS, 53,x);
+		intSendEvent(m_fd, EV_ABS, 54,y);
+		intSendEvent(m_fd, EV_ABS, 48,100);
+		intSendEvent(m_fd, EV_ABS, 50,0);
+		intSendEvent(m_fd, 0, 2,0);
+		intSendEvent(m_fd, 0, 2,0);
+		intSendEvent(m_fd, 0, 0,0);
+		intSendEvent(m_fd, EV_ABS, 24,0);
+		intSendEvent(m_fd, EV_ABS, 28,0);
+		intSendEvent(m_fd, 1, 330,0); //touch up
+		intSendEvent(m_fd, EV_ABS, 53,0);
+		intSendEvent(m_fd, EV_ABS, 54,0);
+		intSendEvent(m_fd, EV_ABS, 48,0);
+		intSendEvent(m_fd, EV_ABS, 50,0);
+		intSendEvent(m_fd, 0, 2,0);
+		intSendEvent(m_fd, 0, 2,0);
+		intSendEvent(m_fd, 0, 0,0);
+		return 1;
+	}
 
 	/*@Override
 	public IBinder onBind(Intent intent) {
